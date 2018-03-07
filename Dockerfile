@@ -5,7 +5,7 @@ RUN set -x \
 	&& addgroup -g 82 -S www-data \
 	&& adduser -u 82 -D -S -G www-data www-data
 
-RUN apk --update add apache2 php7 php7-cli php7-apache2 \
+RUN apk --update add apache2 php7 php7-cli php7-apache2 php7-ctype \
         php7-curl php7-apcu php7-json php7-opcache php7-bcmath php7-xml \
         php7-mcrypt php7-simplexml php7-mbstring php7-session php7-common \
         bash
