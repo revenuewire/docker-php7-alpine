@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     php7-mbstring \
     php7-curl \
     php7-session \
-    php7-soap \
+    php7-common \
     grep \
     curl \
     vim 
