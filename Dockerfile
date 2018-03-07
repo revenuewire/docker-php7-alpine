@@ -10,14 +10,14 @@ RUN apk --update add apache2 php7 php7-cli php7-apache2 \
         php7-mcrypt php7-simplexml php7-mbstring \
         bash
 
-ENV HTTPD_PREFIX /var/www/html
+ENV HTTPD_PREFIX /var/src/html
 RUN mkdir -p "$HTTPD_PREFIX" \
 	&& chown www-data:www-data "$HTTPD_PREFIX" \
 	&& mkdir /run/apache2
 
 COPY conf/php.ini /etc/php7/php.ini
 COPY conf/httpd.conf /etc/apache2/httpd.conf
-COPY index.php /var/www/html/
+COPY index.php /var/src/html
 ADD run-http.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run-http.sh
 
