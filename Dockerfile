@@ -10,6 +10,9 @@ RUN apk --update add apache2 php7 php7-cli php7-apache2 php7-ctype php7-openssl 
         php7-intl php7-iconv php7-mcrypt php7-simplexml php7-mbstring php7-session php7-common \
         bash
 
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 ENV HTTPD_PREFIX /var/src/html
 RUN mkdir -p "$HTTPD_PREFIX" \
 	&& chown www-data:www-data "$HTTPD_PREFIX" \
