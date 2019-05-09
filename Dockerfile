@@ -15,6 +15,9 @@ RUN mkdir -p "$HTTPD_PREFIX" \
 	&& chown www-data:www-data "$HTTPD_PREFIX" \
 	&& mkdir /run/apache2
 
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community gnu-libiconv
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 COPY conf/php.ini /etc/php7/php.ini
 COPY conf/httpd.conf /etc/apache2/httpd.conf
 COPY index.php /var/src/html
