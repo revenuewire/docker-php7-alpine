@@ -12,8 +12,7 @@ RUN apk --update add apache2 php7 php7-cli php7-apache2 php7-ctype php7-openssl 
 
 ENV HTTPD_PREFIX /var/src/html
 RUN mkdir -p "$HTTPD_PREFIX" \
-	&& chown www-data:www-data "$HTTPD_PREFIX" \
-	&& mkdir /run/apache2
+	&& chown www-data:www-data "$HTTPD_PREFIX"
 
 COPY conf/php.ini /etc/php7/php.ini
 COPY conf/httpd.conf /etc/apache2/httpd.conf
