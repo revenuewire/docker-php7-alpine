@@ -1,20 +1,13 @@
-FROM alpine:3.9
+FROM alpine:3.10
 MAINTAINER Scott Wang <swang@revenuewire.com>
-
-# trust this project public key to trust the packages.
-ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
-# make sure you can use HTTPS
-RUN apk --update add ca-certificates
-# add the repository, make sure you replace the correct versions if you want.
-RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories
 
 RUN set -x \
 	&& addgroup -g 82 -S www-data \
 	&& adduser -u 82 -D -S -G www-data www-data
 
-RUN apk --update add apache2 php php-cli php-apache2 php-ctype php-openssl \
-        php-curl php-apcu php-json php-opcache php-bcmath php-xml \
-        php-intl php-iconv php-mbstring php-session php-common \
+RUN apk --update add apache2 php7 php7-cli php7-apache2 php7-ctype php7-openssl \
+        php7-curl php7-apcu php7-json php7-opcache php7-bcmath php7-xml \
+        php7-intl php7-iconv php7-mbstring php7-session php7-common \
         bash
 
 ENV HTTPD_PREFIX /var/src/html
