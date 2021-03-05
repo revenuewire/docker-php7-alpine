@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.12
 MAINTAINER Scott Wang <swang@revenuewire.com>
 
 RUN set -x \
