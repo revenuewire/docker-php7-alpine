@@ -1,8 +1,7 @@
-FROM alpine:3.13
+FROM alpine:3.14
 LABEL maintainer="jeff@moresbymedia.com"
 
 RUN set -x \
-	&& addgroup -g 82 -S www-data \
 	&& adduser -u 82 -D -S -G www-data www-data
 
 RUN apk --update add apache2 php7 php7-cli php7-apache2 php7-ctype php7-openssl \
