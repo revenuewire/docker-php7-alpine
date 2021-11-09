@@ -1,5 +1,5 @@
-FROM alpine:3.12
-MAINTAINER Scott Wang <swang@revenuewire.com>
+FROM alpine:3.13
+LABEL maintainer="jeff@moresbymedia.com"
 
 RUN set -x \
 	&& addgroup -g 82 -S www-data \
